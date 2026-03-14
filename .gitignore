@@ -28,5 +28,22 @@ go.work.sum
 .env
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.vscode/
+.specstory/
+.serena/
+
+# CodingAgent
+.claude/
+.codex/
+.cursor/
+
+# Cursor
+.cursorrules
+.cursorignore
+.cursorindexingignore
+.gocache_local/
+.gopath/
+envcrypt
+
+# Binary
+dist/

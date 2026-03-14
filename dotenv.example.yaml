@@ -1,0 +1,9 @@
+aws:
+  region: ap-northeast-1
+  parameter_name: /personal/envcrypt/master-key
+
+crypto:
+  algorithm: aes-256-gcm
+
+files:
+  encrypted_prefix: ""

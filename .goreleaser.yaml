@@ -1,0 +1,47 @@
+version: 2
+
+project_name: envcrypt
+
+before:
+  hooks:
+    - go test ./...
+
+builds:
+  - id: envcrypt
+    main: .
+    binary: envcrypt
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: linux
+        goarch: arm64
+    ldflags:
+      - -s -w -X github.com/sudabon/dotenv_cryption_personal/pkg/version.Version={{ .Version }}
+
+archives:
+  - id: release-archive
+    ids:
+      - envcrypt
+    formats:
+      - tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+      - LICENSE
+      - dotenv.example.yaml
+      - dotenv.example.aws.yaml
+
+checksum:
+  name_template: SHA256SUMS
+
+snapshot:
+  version_template: "{{ .Version }}-next"
+
+changelog:
+  disable: true
