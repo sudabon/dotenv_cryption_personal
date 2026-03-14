@@ -35,7 +35,6 @@ archives:
       - README.md
       - LICENSE
       - dotenv.example.yaml
-      - dotenv.example.aws.yaml
 
 checksum:
   name_template: SHA256SUMS
